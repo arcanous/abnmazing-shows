@@ -3,8 +3,8 @@
  * Follows the TVShow interface structure from the API
  */
 
-// Import the TVShow interface
-/// <reference types="../types" />
+// Use global TypeScript definitions from the project
+/// <reference types="../../types" />
 
 export const mockShow: TVShow = {
   "id": 1,

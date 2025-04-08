@@ -35,10 +35,11 @@
         </p>
         <p class="text-sm md:text-base mt-4" v-html="truncatedSummary(shows[currentHero].summary)"></p>
         <!-- CTA -->
-        <button
-          class="mt-6 px-6 py-2 bg-red-600 hover:bg-red-700 transition-colors rounded text-white font-semibold">
+        <NuxtLink
+          :to="`/show/${shows[currentHero].id}`"
+          class="mt-6 px-6 py-2 bg-red-600 hover:bg-red-700 transition-colors rounded text-white font-semibold text-center">
           View Show Details
-        </button>
+        </NuxtLink>
       </div>
     </div>
     <!-- Carousel Dots for Navigation -->

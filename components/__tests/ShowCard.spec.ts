@@ -1,20 +1,16 @@
 import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
-import HeroCarousel from '../HeroCarousel.vue'
+import ShowCard from '../ShowCard.vue'
 import { mockShow } from '../../tests/mocks/shows'
 
-describe('HeroCarousel Component', () => {
+describe('ShowCard Component', () => {
   it('mounts without errors', () => {
-    // Create an array of shows for testing
-    const testShows = Array(3).fill(null).map(() => ({...mockShow}))
-    
-    const wrapper = mount(HeroCarousel, {
+    const wrapper = mount(ShowCard, {
       props: {
-        shows: testShows
+        show: mockShow
       },
       global: {
         stubs: {
-          // Stub all Nuxt components that cause issues in tests
           NuxtImg: true,
           NuxtLink: true
         }
