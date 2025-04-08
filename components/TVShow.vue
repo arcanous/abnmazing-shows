@@ -4,7 +4,7 @@
     <!-- Backdrop: Using the show's original image -->
     <div class="relative h-96 bg-cover bg-center" :style="{ backgroundImage: `url(${show.image.original})` }">
       <!-- Gradient overlay for readability -->
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"/>
       <!-- Text overlay on image -->
       <div class="absolute bottom-0 left-0 p-6">
         <h2 class="text-3xl md:text-5xl font-bold">{{ show.name }}</h2>
@@ -34,7 +34,7 @@
         </span>
       </div>
       <!-- Summary (rendered as HTML) -->
-      <div class="prose prose-invert max-w-none" v-html="show.summary"></div>
+      <div class="prose prose-invert max-w-none" v-html="show.summary"/>
       <!-- Call-To-Action Button -->
       <div>
         <a

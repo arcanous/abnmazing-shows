@@ -2,7 +2,7 @@
   <main class="min-h-screen bg-gray-900 text-white">
     <!-- Initial Loading State -->
     <section v-if="isLoading && shows.length === 0" class="flex flex-col items-center justify-center h-screen">
-      <div class="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+      <div class="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin"/>
       <p class="mt-4 text-xl">Loading...</p>
     </section>
 
@@ -38,7 +38,7 @@
 
       <!-- Pagination loader -->
       <div v-if="isLoading && shows.length > 0" class="flex justify-center my-8">
-        <div class="w-10 h-10 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
+        <div class="w-10 h-10 border-4 border-t-transparent border-white rounded-full animate-spin"/>
       </div>
 
       <!-- End of results message -->

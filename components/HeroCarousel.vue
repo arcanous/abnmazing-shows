@@ -2,10 +2,11 @@
   <div class="mb-12">
     <div class="bg-gray-800 rounded-lg overflow-hidden md:flex md:h-[500px]">
       <div class="md:w-1/2 relative">
-        <NuxtImg :src="shows[currentHero].image.original || shows[currentHero].image.medium"
+        <NuxtImg
+:src="shows[currentHero].image.original || shows[currentHero].image.medium"
           :alt="shows[currentHero].name" class="object-cover w-full h-64 md:h-full transition-all duration-500"
           width="960" height="1080" />
-        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="absolute inset-0 bg-black opacity-20"/>
       </div>
       <div class="p-4 md:p-8 md:w-1/2 flex flex-col justify-center">
         <h2 class="text-2xl md:text-4xl font-bold mb-4">{{ shows[currentHero].name }}</h2>
@@ -33,7 +34,7 @@
           <span class="font-semibold">Network:</span>
           {{ shows[currentHero].network.name }} ({{ shows[currentHero].network.country.code }})
         </p>
-        <p class="text-sm md:text-base mt-4" v-html="truncatedSummary(shows[currentHero].summary)"></p>
+        <p class="text-sm md:text-base mt-4" v-html="truncatedSummary(shows[currentHero].summary)"/>
         <!-- CTA -->
         <NuxtLink
           :to="`/show/${shows[currentHero].id}`"
