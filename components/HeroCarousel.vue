@@ -48,7 +48,7 @@
         v-for="(show, index) in shows" :key="show.id"
         :class="{'bg-white': currentHero === index, 'bg-gray-500': currentHero !== index}"
         class="w-3 h-3 rounded-full focus:outline-none cursor-pointer"
-        @click="currentHero = index"
+        @click="selectHero(index)"
       />
     </div>
   </div>
@@ -73,13 +73,26 @@ const truncatedSummary = (text: string, maxLength = 200): string => {
   return plainText.length > maxLength ? plainText.slice(0, maxLength).trim() + '...' : plainText;
 };
 
-onMounted(() => {
-  // Start hero show cycle every 10 seconds
-  if (props.shows.length) {
+const startCarouselTimer = (): void => {
+
+  if (heroInterval) {
+    clearInterval(heroInterval);
+  }
+  
+  if (props.shows.length > 1) {
     heroInterval = window.setInterval(() => {
       currentHero.value = (currentHero.value + 1) % props.shows.length;
     }, 10000);
   }
+};
+
+const selectHero = (index: number): void => {
+  currentHero.value = index;
+  startCarouselTimer(); // Reset the timer when user selects
+};
+
+onMounted(() => {
+  startCarouselTimer();
 });
 
 onUnmounted(() => {

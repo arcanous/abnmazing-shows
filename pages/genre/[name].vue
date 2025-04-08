@@ -127,7 +127,6 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-/* Consistent scrollbar styling with the shows page */
 .grid {
   animation: fadeIn 0.5s ease-in-out;
 }
