@@ -17,8 +17,9 @@ describe('GenreList Component', () => {
       },
       global: {
         stubs: {
-          // Completely stub out all child components
-          ShowCard: true
+          // Stub out all Nuxt components that cause issues in tests
+          ShowCard: true,
+          NuxtLink: true
         }
       }
     })
