@@ -6,9 +6,9 @@
     <div class="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">Experience the Thrill</h1>
       <p class="text-xl md:text-2xl mb-8">Stream the Latest Shows and Movies</p>
-      <a href="#" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded">
+      <NuxtLink to="/shows" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded">
         Watch Now
-      </a>
+      </NuxtLink>
     </div>
   </section>
 </template>

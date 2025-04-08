@@ -84,3 +84,8 @@ interface Links {
   previousepisode?: Link;
   nextepisode?: Link;
 }
+
+interface Genre {
+  name: string;
+  shows: TVShow[];
+}

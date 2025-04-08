@@ -16,4 +16,9 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.API_BASE_URL || 'https://api.tvmaze.com',
+    },
+  },
 })
