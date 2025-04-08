@@ -11,6 +11,9 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/icon'
   ],
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
   vite: {
     plugins: [
       tailwindcss(),

@@ -4,7 +4,7 @@
       <!-- Logo Section -->
       <NuxtLink to="/shows" class="group flex items-center">
         <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-rose-400 to-red-600 tracking-tight transition-all duration-300 group-hover:tracking-wide">
-          Abnmaze
+          ABNmazing Shows
         </span>
       </NuxtLink>
       
