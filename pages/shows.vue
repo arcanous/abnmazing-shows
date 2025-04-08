@@ -1,5 +1,6 @@
 <template>
   <main class="min-h-screen bg-gray-900 text-white">
+
     <!-- Loading state -->
     <section v-if="isLoading" class="flex flex-col items-center justify-center h-screen">
       <div class="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin"></div>
@@ -21,22 +22,12 @@
 
       <HeroCarousel v-if="top10Shows.length" :shows="top10Shows" />
 
-      <!-- Genre List -->
-      <article v-for="genre in showListByGenre" :key="genre.name" class="mb-12">
-        <h2 class="text-2xl font-bold mb-4">{{ genre.name }}</h2>
-        <div class="flex space-x-4 overflow-x-auto pb-2">
-          <div
-            v-for="show in genre.shows"
-            :key="show.id"
-            class="flex-none w-40 transform transition duration-200 hover:scale-105"
-          >
-            <NuxtImg :src="show.image.medium" :alt="show.name" width="160" height="225" class="rounded-md shadow-lg" />
-          </div>
-        </div>
-      </article>
+      <GenreList v-for="genre in showListByGenre" :key="genre.name" :genre="genre" />
+
     </section>
   </main>
 </template>
+
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const showsApiUrl = `${config.public.apiBase}/shows`;
