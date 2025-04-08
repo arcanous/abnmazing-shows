@@ -1,7 +1,7 @@
 <template>
   <section class="relative h-screen bg-cover bg-center">
     <!-- Semi-transparent overlay -->
-    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 bg-black opacity-50" />
     <!-- Hero content -->
     <div class="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
       <h1 class="text-4xl md:text-6xl font-bold mb-4">Experience the Thrill</h1>
