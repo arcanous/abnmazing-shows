@@ -89,3 +89,8 @@ interface Genre {
   name: string;
   shows: TVShow[];
 }
+
+interface SearchResult {
+  score: number;
+  show: TVShow;
+}

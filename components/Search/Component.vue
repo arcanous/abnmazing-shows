@@ -94,6 +94,9 @@ const clearExpandedSearch = () => {
   searchQuery.value = '';
 };
 
+// Provide closeSearch method to FoundResult components
+provide('closeSearch', closeSearch);
+
 // Global ESC key handler
 const handleEscapeKey = (event: KeyboardEvent) => {
   if (event.key === 'Escape') {
