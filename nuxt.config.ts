@@ -12,7 +12,13 @@ export default defineNuxtConfig({
     '@nuxt/icon'
   ],
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: 'page', mode: 'out-in' },
+    head: {
+      title: 'ABNmazing Shows',
+      htmlAttrs: {
+        lang: 'en',
+      }
+    }
   },
   vite: {
     plugins: [
