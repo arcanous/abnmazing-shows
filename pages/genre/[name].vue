@@ -7,12 +7,7 @@
 
     <section v-else class="container mx-auto px-4 py-8">
       <div class="flex items-center gap-4 mb-8">
-        <NuxtLink 
-          to="/shows" 
-          class="text-gray-400 hover:text-white transition-colors"
-        >
-          <span class="inline-block transform rotate-180">→</span> Back to shows
-        </NuxtLink>
+        <UiBackButton to="/shows" text="Back to shows" />
         <h1 class="text-4xl font-bold">{{ genreName }}</h1>
       </div>
 
@@ -25,9 +20,7 @@
       </div>
 
       <!-- Pagination loader -->
-      <div v-if="isLoading && shows.length > 0" class="flex justify-center my-8">
-        <div class="w-10 h-10 border-4 border-t-transparent border-white rounded-full animate-spin"/>
-      </div>
+      <UiPaginationLoader v-if="isLoading && shows.length > 0" />
 
       <!-- End of results message -->
       <p v-if="!isLoading && reachedEnd" class="text-center text-gray-400 my-8">

@@ -7,6 +7,11 @@
 
     <!-- Show content -->
     <section v-else-if="show" class="pb-16">
+      <!-- Top back button (visible on mobile) -->
+      <div class="container mx-auto px-4 pt-5 pb-4 md:hidden">
+        <UiBackButton to="/shows" text="Back to shows" />
+      </div>
+      
       <!-- Hero banner -->
       <div class="relative h-[70vh] overflow-hidden">
         <!-- Background image with gradient overlay -->
@@ -22,6 +27,15 @@
             height="1080"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent" />
+        </div>
+        
+        <!-- Top back button (visible on desktop) -->
+        <div class="absolute top-6 left-0 right-0 z-10 hidden md:block">
+          <div class="container mx-auto px-12">
+            <div class="inline-flex px-3 py-2 rounded-full bg-gray-900/40 backdrop-blur-sm border border-gray-700/30 shadow-lg transition-all duration-300 hover:bg-gray-900/60">
+              <UiBackButton to="/shows" text="Back to shows" />
+            </div>
+          </div>
         </div>
         
         <!-- Show details overlay -->
@@ -81,19 +95,13 @@
           <div class="md:col-span-2 space-y-8">
             <!-- Summary -->
             <div class="bg-gray-800/50 rounded-xl p-6">
-              <h2 class="text-xl font-semibold mb-4 flex items-center">
-                <Icon name="heroicons:information-circle" class="h-5 w-5 text-red-500 mr-2" />
-                Synopsis
-              </h2>
+              <UiSectionHeader title="Synopsis" icon="heroicons:information-circle" />
               <div class="text-gray-300 leading-relaxed" v-html="show.summary"></div>
             </div>
             
             <!-- Schedule -->
             <div v-if="show.schedule" class="bg-gray-800/50 rounded-xl p-6">
-              <h2 class="text-xl font-semibold mb-4 flex items-center">
-                <Icon name="heroicons:calendar-days" class="h-5 w-5 text-red-500 mr-2" />
-                Schedule
-              </h2>
+              <UiSectionHeader title="Schedule" icon="heroicons:calendar-days" />
               <div class="flex flex-wrap gap-2">
                 <UiPill 
                   v-for="day in show.schedule.days" 
@@ -111,10 +119,7 @@
           <div class="space-y-6">
             <!-- Network info -->
             <div v-if="show.network" class="bg-gray-800/50 rounded-xl p-6">
-              <h2 class="text-xl font-semibold mb-4 flex items-center">
-                <Icon name="heroicons:tv" class="h-5 w-5 text-red-500 mr-2" />
-                Network
-              </h2>
+              <UiSectionHeader title="Network" icon="heroicons:tv" />
               <ul class="space-y-2 text-gray-300">
                 <li class="flex justify-between">
                   <span>Name:</span>
@@ -140,10 +145,7 @@
             
             <!-- Show info -->
             <div class="bg-gray-800/50 rounded-xl p-6">
-              <h2 class="text-xl font-semibold mb-4 flex items-center">
-                <Icon name="heroicons:document-text" class="h-5 w-5 text-red-500 mr-2" />
-                Details
-              </h2>
+              <UiSectionHeader title="Details" icon="heroicons:document-text" />
               <ul class="space-y-2 text-gray-300">
                 <li class="flex justify-between">
                   <span>Status:</span>
@@ -173,37 +175,29 @@
               <div v-if="show.externals" class="mt-6 pt-4 border-t border-gray-700">
                 <h3 class="text-sm font-medium mb-3 text-gray-400">External Links</h3>
                 <div class="flex flex-wrap gap-3">
-                  <a v-if="show.externals.imdb" 
-                    :href="`https://www.imdb.com/title/${show.externals.imdb}`" 
-                    target="_blank" 
-                    rel="noopener" 
-                    class="px-3 py-1 bg-yellow-600/30 hover:bg-yellow-600/50 text-yellow-400 text-sm rounded"
-                  >
-                    IMDb
-                  </a>
-                  <a v-if="show.officialSite" 
-                    :href="show.officialSite" 
-                    target="_blank" 
-                    rel="noopener" 
-                    class="px-3 py-1 bg-blue-600/30 hover:bg-blue-600/50 text-blue-400 text-sm rounded"
-                  >
-                    Official Site
-                  </a>
+                  <UiExternalLink
+                    v-if="show.externals.imdb" 
+                    :href="`https://www.imdb.com/title/${show.externals.imdb}`"
+                    text="IMDb"
+                    color="yellow"
+                  />
+                  <UiExternalLink
+                    v-if="show.officialSite" 
+                    :href="show.officialSite"
+                    text="Official Site"
+                    color="blue"
+                  />
                 </div>
               </div>
             </div>
           </div>
         </div>
         
-        <!-- Back button -->
-        <div class="mt-10">
-          <NuxtLink 
-            to="/shows"
-            class="inline-flex items-center text-gray-400 hover:text-white transition-colors"
-          >
-            <Icon name="heroicons:arrow-left" class="h-5 w-5 mr-2" />
-            Back to all shows
-          </NuxtLink>
+        <!-- Bottom back button (with subtle enhancement) -->
+        <div class="mt-10 text-center md:text-left">
+          <div class="inline-block">
+            <UiBackButton to="/shows" text="Back to all shows" />
+          </div>
         </div>
       </div>
     </section>
