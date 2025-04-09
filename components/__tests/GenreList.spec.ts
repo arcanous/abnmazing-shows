@@ -1,7 +1,26 @@
-import { describe, it, expect } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { describe, it, expect, vi } from 'vitest'
+import { shallowMount } from '@vue/test-utils'
 import GenreList from '../GenreList.vue'
 import { mockShow } from '../../tests/mocks/shows'
+
+// Mock the Nuxt components and Icon component
+vi.mock('#components', () => ({
+  Icon: {
+    render: () => null
+  },
+  NuxtLink: {
+    render: () => null
+  }
+}))
+
+// Mock ShowCard component
+vi.mock('../ShowCard.vue', () => ({
+  default: {
+    name: 'ShowCard',
+    render: () => null,
+    props: ['show']
+  }
+}))
 
 describe('GenreList Component', () => {
   it('mounts without errors', () => {
@@ -11,15 +30,17 @@ describe('GenreList Component', () => {
       shows: [mockShow]
     }
     
-    const wrapper = mount(GenreList, {
+    const wrapper = shallowMount(GenreList, {
       props: {
         genre: mockGenre
       },
+      // Use shallow mounting and stubbing all components
+      shallow: true,
       global: {
         stubs: {
-          // Stub out all Nuxt components that cause issues in tests
-          ShowCard: true,
-          NuxtLink: true
+          'NuxtLink': true,
+          'Icon': true,
+          'ShowCard': true
         }
       }
     })
