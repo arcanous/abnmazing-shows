@@ -10,6 +10,7 @@
       height="225" 
       class="rounded-md shadow-lg"
       loading="lazy"
+      format="webp"
     />
     <div class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-b-md">
       <p class="text-white text-sm font-medium truncate">{{ show.name }}</p>
