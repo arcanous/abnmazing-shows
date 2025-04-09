@@ -1,22 +1,10 @@
 <template>
   <main class="min-h-screen bg-gray-900 text-white">
-    <!-- Loading state -->
-    <section v-if="isLoading" class="flex flex-col items-center justify-center h-screen">
-      <div class="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin" />
-      <p class="mt-4 text-xl">Loading...</p>
-    </section>
-
-    <!-- Error state -->
-    <section v-else-if="hasError" class="flex items-center justify-center h-screen">
-      <div class="text-center">
-        <h2 class="text-3xl font-bold text-red-500 mb-2">Oops! Something went wrong.</h2>
-        <p class="text-lg">
-          We're having trouble loading your shows at the moment. Please try refreshing or come back later.
-        </p>
-      </div>
-    </section>
-
-    <!-- Loaded content -->
+    
+    <UiLoadingSpinner v-if="isLoading" />
+    
+    <UiErrorMessage v-else-if="hasError" />
+    
     <section v-else class="container mx-auto px-4 py-8">
       <HeroCarousel v-if="top10Shows.length" :shows="top10Shows" />
       <GenreList v-for="genre in showListByGenre" :key="genre.name" :genre="genre" />
