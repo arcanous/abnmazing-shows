@@ -96,7 +96,7 @@
             <!-- Summary -->
             <div class="bg-gray-800/50 rounded-xl p-6">
               <UiSectionHeader title="Synopsis" icon="heroicons:information-circle" />
-              <div class="text-gray-300 leading-relaxed" v-html="show.summary"></div>
+              <div class="text-gray-300 leading-relaxed" v-html="show.summary"/>
             </div>
             
             <!-- Schedule -->

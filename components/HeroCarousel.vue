@@ -63,7 +63,9 @@
               <span class="text-white font-medium">{{ shows[currentHero].network.name }} ({{ shows[currentHero].network.country.code }})</span>
             </p>
             
-            <p class="text-sm md:text-base mt-2 text-gray-300 line-clamp-3" v-html="truncatedSummary(shows[currentHero].summary)"/>
+            <p class="text-sm md:text-base mt-2 text-gray-300 line-clamp-3" >
+              {{ truncatedSummary(shows[currentHero].summary) }}
+            </p>
             
             <!-- CTA Button -->
             <NuxtLink

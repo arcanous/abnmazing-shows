@@ -8,13 +8,13 @@
       <input
         ref="inputElement"
         :value="modelValue"
-        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         type="text"
         :placeholder="placeholder"
         class="w-full bg-transparent border-none outline-none px-3 py-1 text-white placeholder-gray-400"
+        @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
         @keyup.enter="$emit('submit')"
         @keyup.esc="$emit('cancel')"
-      />
+      >
       <button
         v-if="modelValue"
         class="text-gray-400 hover:text-white transition-colors cursor-pointer flex-shrink-0"

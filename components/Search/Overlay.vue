@@ -14,15 +14,15 @@
           <input
             ref="searchInput"
             :value="modelValue"
-            @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
             type="text"
             :placeholder="placeholder"
             class="w-full bg-transparent border-none outline-none px-3 py-2 text-white placeholder-gray-400"
+            @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
             @keyup.esc="$emit('close')"
-          />
+          >
           <button
-            @click="$emit('clear')"
             class="text-gray-400 hover:text-white transition-colors cursor-pointer flex-shrink-0"
+            @click="$emit('clear')"
           >
             <Icon name="heroicons:x-mark" class="h-5 w-5" />
           </button>
@@ -30,10 +30,10 @@
       </div>
       
       <!-- Results container -->
-      <slot name="results"></slot>
+      <slot name="results"/>
     </div>
     
-    <slot name="close-button"></slot>
+    <slot name="close-button"/>
   </div>
 </template>
 

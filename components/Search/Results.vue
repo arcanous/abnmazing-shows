@@ -7,7 +7,7 @@
     <div v-if="!searchResults.length" class="py-8">
       <!-- Loading state -->
       <div v-if="query.trim().length > 0 && isSearching" class="text-center text-gray-300 py-12">
-        <div class="w-16 h-16 border-4 border-t-transparent border-red-500/70 rounded-full animate-spin mx-auto mb-6"></div>
+        <div class="w-16 h-16 border-4 border-t-transparent border-red-500/70 rounded-full animate-spin mx-auto mb-6"/>
         <p class="text-xl font-medium">Searching for "{{ query }}"</p>
         <p class="text-sm mt-4 text-gray-400">Looking far and beyond...</p>
       </div>

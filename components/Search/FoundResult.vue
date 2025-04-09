@@ -38,7 +38,8 @@
         </div>
         
         <div class="mt-2 flex flex-wrap gap-1">
-          <span v-for="genre in show.genres.slice(0, 2)" :key="genre" 
+          <span
+v-for="genre in show.genres.slice(0, 2)" :key="genre" 
             class="px-2 py-0.5 bg-gray-700/70 text-xs rounded-full text-gray-300">
             {{ genre }}
           </span>
