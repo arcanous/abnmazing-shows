@@ -113,10 +113,6 @@ const handleScroll = () => {
 
 // Lifecycle hooks
 onMounted(() => {
-  // Load the first page
-  loadShows();
-  
-  // Add scroll listener for infinite scrolling
   window.addEventListener('scroll', handleScroll);
 });
 
@@ -124,6 +120,8 @@ onUnmounted(() => {
   // Clean up
   window.removeEventListener('scroll', handleScroll);
 });
+
+await loadShows();
 </script>
 
 <style scoped>

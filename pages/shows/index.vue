@@ -1,9 +1,8 @@
 <template>
   <main class="min-h-screen bg-gray-900 text-white">
-
     <!-- Loading state -->
     <section v-if="isLoading" class="flex flex-col items-center justify-center h-screen">
-      <div class="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin"/>
+      <div class="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin" />
       <p class="mt-4 text-xl">Loading...</p>
     </section>
 
@@ -19,11 +18,8 @@
 
     <!-- Loaded content -->
     <section v-else class="container mx-auto px-4 py-8">
-
       <HeroCarousel v-if="top10Shows.length" :shows="top10Shows" />
-
       <GenreList v-for="genre in showListByGenre" :key="genre.name" :genre="genre" />
-
     </section>
   </main>
 </template>
@@ -89,9 +85,7 @@ const loadShows = async (): Promise<void> => {
   isLoading.value = false;
 };
 
-onMounted(async () => {
-  await loadShows();
-});
+await loadShows();
 </script>
 
 <style scoped>
