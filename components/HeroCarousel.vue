@@ -29,10 +29,11 @@
             </h2>
             
             <div class="flex flex-wrap gap-2 mb-4">
-              <span v-for="genre in shows[currentHero].genres" :key="genre"
-                class="px-3 py-1 bg-gray-700/70 text-xs rounded-full text-gray-200">
-                {{ genre }}
-              </span>
+              <UiPill 
+                v-for="genre in shows[currentHero].genres" 
+                :key="genre"
+                :text="genre"
+              />
             </div>
             
             <div class="grid grid-cols-2 gap-2 mb-4">

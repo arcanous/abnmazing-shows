@@ -46,10 +46,11 @@
               <h1 class="text-4xl md:text-5xl font-bold mb-3 text-white">{{ show.name }}</h1>
               
               <div class="flex flex-wrap gap-2 mb-4">
-                <span v-for="genre in show.genres" :key="genre" 
-                  class="px-3 py-1 bg-gray-800/80 text-xs rounded-full text-gray-200">
-                  {{ genre }}
-                </span>
+                <UiPill 
+                  v-for="genre in show.genres" 
+                  :key="genre" 
+                  :text="genre" 
+                />
               </div>
               
               <div class="flex items-center gap-4 text-sm md:text-base mb-3">
@@ -94,10 +95,11 @@
                 Schedule
               </h2>
               <div class="flex flex-wrap gap-2">
-                <div v-for="day in show.schedule.days" :key="day" 
-                  class="px-3 py-1 bg-gray-700 rounded text-sm">
-                  {{ day }}
-                </div>
+                <UiPill 
+                  v-for="day in show.schedule.days" 
+                  :key="day" 
+                  :text="day"
+                />
               </div>
               <p v-if="show.schedule.time" class="mt-3 text-gray-300">
                 Airs at <span class="font-medium text-white">{{ show.schedule.time }}</span>
