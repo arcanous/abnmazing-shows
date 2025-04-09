@@ -1,5 +1,5 @@
 <template>
-  <section class="relative h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+  <section class="relative h-screen overflow-hidden bg-gradient-to-br from-slate-600 via-purple-800 to-slate-600">
     <!-- Animated gradient overlay -->
     <div class="absolute inset-0 bg-gradient-to-tr from-black/30 via-indigo-900/20 to-black/40 animate-gradient" />
     
@@ -65,8 +65,8 @@ definePageMeta({
 }
 
 @keyframes pulseSoft {
-  0%, 100% { box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
-  50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+  0%, 100% { box-shadow: 0 0 0 rgba(157, 55, 55, 0); }
+  50% { box-shadow: 0 0 20px rgba(205, 143, 143, 0.75); }
 }
 
 @keyframes gradientShift {

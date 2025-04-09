@@ -1,6 +1,6 @@
 <template>
   <NuxtLink 
-    :to="`/show/${show.id}`" 
+    :to="`/shows/${show.id}`" 
     class="flex-none w-40 transform transition duration-200 hover:scale-105 relative group"
   >
     <NuxtImg 

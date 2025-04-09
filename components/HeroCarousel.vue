@@ -37,28 +37,28 @@
             
             <div class="grid grid-cols-2 gap-2 mb-4">
               <p class="text-sm md:text-base flex items-center gap-1">
-                <span class="text-gray-400">Rating:</span>
+                <span class="text-gray-400">Rating: </span>
                 <span class="text-white font-medium flex items-center">
                   {{ shows[currentHero].rating.average ? shows[currentHero].rating.average : 'N/A' }}
                   <Icon v-if="shows[currentHero].rating.average" name="heroicons:star-solid" class="h-4 w-4 text-yellow-400 ml-1" />
                 </span>
               </p>
               <p class="text-sm md:text-base">
-                <span class="text-gray-400">Status:</span>
+                <span class="text-gray-400">Status: </span>
                 <span class="text-white font-medium">{{ shows[currentHero].status }}</span>
               </p>
               <p class="text-sm md:text-base">
-                <span class="text-gray-400">Premiered:</span>
+                <span class="text-gray-400">Premiered: </span>
                 <span class="text-white font-medium">{{ shows[currentHero].premiered }}</span>
               </p>
               <p class="text-sm md:text-base">
-                <span class="text-gray-400">Language:</span>
+                <span class="text-gray-400">Language: </span>
                 <span class="text-white font-medium">{{ shows[currentHero].language }}</span>
               </p>
             </div>
             
             <p v-if="shows[currentHero].network" class="text-sm md:text-base mb-4">
-              <span class="text-gray-400">Network:</span>
+              <span class="text-gray-400">Network: </span>
               <span class="text-white font-medium">{{ shows[currentHero].network.name }} ({{ shows[currentHero].network.country.code }})</span>
             </p>
             
@@ -66,7 +66,7 @@
             
             <!-- CTA Button -->
             <NuxtLink
-              :to="`/show/${shows[currentHero].id}`"
+              :to="`/shows/${shows[currentHero].id}`"
               class="group mt-6 px-6 py-3 inline-flex items-center justify-center bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 rounded-lg text-white font-medium text-center transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg shadow-md shadow-red-900/20">
               View Details
               <Icon 
