@@ -22,7 +22,13 @@ Check out the live version here:
 - Clicking on a show navigates to a detailed view with comprehensive information. ￼
 - A search feature with subtle animations and a teleport mechanism to render results effectively.
 - Application is mobile-friendly and adapts seamlessly to various screen sizes.
-- As an extra: A minimalist infinite scroll for browsing shows within a genre.
+- As a small extra: A minimalist infinite scroll for browsing shows within a genre.
+
+## 💩 Known flaws and issues that would need to be fixed for real production application
+- Swipe gestures for mobile on the hero carousel component
+- Smarter infinite scroll that continues pagination if the initial page doesn't return enough shows
+- More robust API response validation, probably using something like [Zod](https://zod.dev/)
+- More gracious error handling and recovery
 
 ## 📦 Getting Started
 
