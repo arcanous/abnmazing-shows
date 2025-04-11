@@ -1,10 +1,10 @@
 <template>
   <div class="h-10 flex items-center">
     <!-- Search button (collapsed state) -->
-    <SearchButton  v-if="!isActive" @click="activateSearch" />
+    <SearchButton  v-if="!isActive || (isActive && isMobile)" @click="activateSearch" />
     
     <!-- Search input (expanded but not full-screen) -->
-    <div v-else-if="!isExpanded" class="relative h-10">
+    <div v-else-if="!isExpanded && !isMobile" class="relative h-10">
       <SearchInput
         v-model="searchQuery"
         placeholder="Search shows..."
@@ -55,9 +55,18 @@ const isActive = ref(false);
 const isExpanded = ref(false);
 const searchQuery = ref('');
 const animationStage = ref(0);
+const isMobile = ref(false);
+
+const checkMobile = () => {
+  isMobile.value = window.innerWidth < 768;
+};
 
 const activateSearch = async () => {
   isActive.value = true;
+  
+  if (isMobile.value) {
+    expandSearch();
+  }
 };
 
 const deactivateSearch = () => {
@@ -66,7 +75,7 @@ const deactivateSearch = () => {
 };
 
 const expandSearch = async () => {
-  if (searchQuery.value.trim().length > 0) {
+  if (searchQuery.value.trim().length > 0 || isMobile.value) {
 
     animationStage.value = 0;
     isExpanded.value = true;
@@ -110,10 +119,13 @@ const handleEscapeKey = (event: KeyboardEvent) => {
 
 onMounted(() => {
   document.addEventListener('keydown', handleEscapeKey);
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
 });
 
 onUnmounted(() => {
   document.removeEventListener('keydown', handleEscapeKey);
+  window.removeEventListener('resize', checkMobile);
   document.body.classList.remove('overflow-hidden');
 });
 </script>
