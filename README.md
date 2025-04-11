@@ -6,7 +6,7 @@ This project showcases my approach to building clean, modular, and delightful us
 ## 🚀 Live Demo
 
 Check out the live version here:
-🔗 abnmazing-shows.vercel.app
+🔗 [abnmazing-shows.vercel.app](https://abnmazing-shows.vercel.app/)
 
 ## 🛠️ Tech Stack
 - Nuxt 3 for its intuitive file-based routing, auto-imports, and seamless integration with Vue. It offers a solid structure for building scalable applications. ￼
@@ -14,7 +14,7 @@ Check out the live version here:
 
 ## 🧱 Architectural Decisions
 - Modular components, keeping the codebase clean and maintainable.
-- Minimal dDependencies - np unnecessary packages to maintain simplicity and reduce bloat.
+- Minimal dependencies - no unnecessary packages to maintain simplicity and reduce bloat.
 - Focused on delivering a subtle and delightful user experience with smooth interactions and animations.
 
 ## ✨ Features
@@ -34,7 +34,7 @@ Prerequisites
 1. Clone the repository:
 ```
 
-git clone https://github.com/your-username/abnmazing-shows.git
+git clone https://github.com/arcanous/abnmazing-shows
 cd abnmazing-shows
 ```
 
