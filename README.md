@@ -1,75 +1,54 @@
-# Nuxt Minimal Starter
+# 🎬 ABN-Mazing TV Shows Dashboard
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Welcome! 👋
+This project showcases my approach to building clean, modular, and delightful user interfaces using modern frontend tools.
 
-## Setup
+## 🚀 Live Demo
 
-Make sure to install dependencies:
+Check out the live version here:
+🔗 abnmazing-shows.vercel.app
 
-```bash
-# npm
-npm install
+## 🛠️ Tech Stack
+- Nuxt 3 for its intuitive file-based routing, auto-imports, and seamless integration with Vue. It offers a solid structure for building scalable applications. ￼
+- Tailwind CSS for its utility-first approach and rapid UI development. It's widely adopted in the industry.
 
-# pnpm
-pnpm install
+## 🧱 Architectural Decisions
+- Modular components, keeping the codebase clean and maintainable.
+- Minimal dDependencies - np unnecessary packages to maintain simplicity and reduce bloat.
+- Focused on delivering a subtle and delightful user experience with smooth interactions and animations.
 
-# yarn
-yarn install
+## ✨ Features
+- Displays TV shows categorized by genres in horizontal scrollable lists.
+- Clicking on a show navigates to a detailed view with comprehensive information. ￼
+- A search feature with subtle animations and a teleport mechanism to render results effectively.
+- Application is mobile-friendly and adapts seamlessly to various screen sizes.
+- As an extra: A minimalist infinite scroll for browsing shows within a genre.
 
-# bun
-bun install
+## 📦 Getting Started
+
+Prerequisites
+- Node.js: Version 20 or 22 (LTS recommended).
+- pnpm: Preferred package manager for this project. ￼
+
+## Installation
+1. Clone the repository:
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+git clone https://github.com/your-username/abnmazing-shows.git
+cd abnmazing-shows
 ```
 
-## Production
+2. Install dependencies:
+`pnpm install`
 
-Build the application for production:
+3. Run the development server:
+`pnpm dev`
 
-```bash
-# npm
-npm run build
 
-# pnpm
-pnpm build
+4. Run tests:
+`pnpm test`
 
-# yarn
-yarn build
 
-# bun
-bun run build
-```
+5. Lint the code:
+`pnpm lint`
 
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
