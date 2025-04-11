@@ -1,8 +1,8 @@
 <template>
-  <article class="mb-12 relative group">
+  <article class="relative mb-12 group">
     <!-- Header with improved styling -->
     <div class="flex items-center justify-between mb-4">
-      <h2 class="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+      <h2 class="text-2xl font-bold text-transparent bg-gradient-to-r from-white to-gray-300 bg-clip-text">
         {{ genre.name }}
       </h2>
       <NuxtLink 
@@ -10,7 +10,7 @@
         class="flex items-center gap-1 text-sm text-gray-400 transition-all duration-200 hover:text-white"
       >
         <span>View all</span>
-        <Icon name="heroicons:arrow-small-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+        <Icon name="heroicons:arrow-small-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
       </NuxtLink>
     </div>
 
@@ -20,26 +20,26 @@
       <button 
         v-show="canScrollLeft" 
         aria-label="Scroll left"
-        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full shadow-lg transform transition-all duration-300 hover:bg-black/70 focus:outline-none"
+        class="absolute top-1/2 left-0 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 shadow-lg transition-all duration-300 hover:bg-black/70 focus:outline-none"
         @click="scrollLeft"
       >
-        <Icon name="heroicons:chevron-left" class="w-5 h-5 text-white" />
+        <Icon name="heroicons:chevron-left" class="h-5 w-5 text-white" />
       </button>
 
       <!-- Right scroll indicator -->
       <button 
         v-show="canScrollRight" 
         aria-label="Scroll right"
-        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 flex items-center justify-center bg-black/50 backdrop-blur-sm rounded-full shadow-lg transform transition-all duration-300 hover:bg-black/70 focus:outline-none"
+        class="absolute top-1/2 right-0 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 shadow-lg transition-all duration-300 hover:bg-black/70 focus:outline-none"
         @click="scrollRight"
       >
-        <Icon name="heroicons:chevron-right" class="w-5 h-5 text-white" />
+        <Icon name="heroicons:chevron-right" class="h-5 w-5 text-white" />
       </button>
 
       <!-- Show cards with improved scrolling -->
       <div 
         ref="scrollContainer"
-        class="flex space-x-4 overflow-x-auto pb-4 pt-2 px-1 scrollbar-hide scroll-smooth"
+        class="flex overflow-x-auto px-1 pb-4 pt-2 space-x-4 scroll-smooth scrollbar-hide"
         @scroll="checkScrollPosition"
       >
         <ShowCard 

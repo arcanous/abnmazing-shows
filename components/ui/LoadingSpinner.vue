@@ -1,6 +1,6 @@
 <template>
-  <section class="flex flex-col items-center justify-center h-screen">
-    <div class="w-16 h-16 border-4 border-t-transparent border-white rounded-full animate-spin" />
+  <section class="flex h-screen flex-col items-center justify-center">
+    <div class="h-16 w-16 rounded-full border-4 border-t-transparent border-white animate-spin" />
     <p class="mt-4 text-xl">Loading...</p>
   </section>
 </template> 

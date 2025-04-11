@@ -1,6 +1,6 @@
 <template>
   <span
-    class="px-3 py-1 bg-gray-700/70 text-xs rounded-full text-gray-200"
+    class="rounded-full bg-gray-700/70 px-3 py-1 text-xs text-gray-200"
   >
     {{ text }}
   </span>

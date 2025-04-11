@@ -1,6 +1,6 @@
 <template>
   <button
-    class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800/80 border border-gray-700/50 shadow-inner hover:shadow-md hover:bg-gray-700/80 transition-all duration-300 text-gray-300 hover:text-white cursor-pointer"
+    class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full border border-gray-700/50 bg-gray-800/80 text-gray-300 shadow-inner transition-all duration-300 hover:bg-gray-700/80 hover:text-white hover:shadow-md"
     aria-label="Open search"
     @click="$emit('click')"
   >

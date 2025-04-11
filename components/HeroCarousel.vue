@@ -1,14 +1,14 @@
 <template>
   <div class="mb-12">
-    <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl overflow-hidden shadow-2xl relative md:flex md:h-[500px]">
+    <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 shadow-2xl md:flex md:h-[500px]">
       <!-- Image section with fade transition -->
-      <div class="md:w-1/2 relative overflow-hidden">
+      <div class="relative overflow-hidden md:w-1/2">
         <Transition name="fade" mode="out-in">
           <NuxtImg
             :key="currentHero"
             :src="shows[currentHero].image.original || shows[currentHero].image.medium"
             :alt="shows[currentHero].name" 
-            class="object-cover w-full h-72 md:h-full transform hover:scale-105 transition-all duration-700"
+            class="h-72 w-full object-cover transition-all duration-700 hover:scale-105 md:h-full"
             loading="eager"
             format="webp"
             quality="90"
@@ -21,14 +21,14 @@
       </div>
       
       <!-- Content section with staggered animation -->
-      <div class="p-5 md:p-10 md:w-1/2 flex flex-col justify-center relative">
+      <div class="relative flex flex-col justify-center p-5 md:w-1/2 md:p-10">
         <Transition name="slide-fade" mode="out-in">
           <div :key="currentHero" class="space-y-2">
-            <h2 class="text-3xl md:text-5xl font-bold mb-4 leading-tight text-white">
+            <h2 class="mb-4 text-3xl font-bold leading-tight text-white md:text-5xl">
               {{ shows[currentHero].name }}
             </h2>
             
-            <div class="flex flex-wrap gap-2 mb-4">
+            <div class="mb-4 flex flex-wrap gap-2">
               <UiPill 
                 v-for="genre in shows[currentHero].genres" 
                 :key="genre"
@@ -36,45 +36,45 @@
               />
             </div>
             
-            <div class="grid grid-cols-2 gap-2 mb-4">
-              <p class="text-sm md:text-base flex items-center gap-1">
+            <div class="mb-4 grid grid-cols-2 gap-2">
+              <p class="flex items-center gap-1 text-sm md:text-base">
                 <span class="text-gray-400">Rating: </span>
-                <span class="text-white font-medium flex items-center">
+                <span class="flex items-center font-medium text-white">
                   {{ shows[currentHero].rating.average ? shows[currentHero].rating.average : 'N/A' }}
-                  <Icon v-if="shows[currentHero].rating.average" name="heroicons:star-solid" class="h-4 w-4 text-yellow-400 ml-1" />
+                  <Icon v-if="shows[currentHero].rating.average" name="heroicons:star-solid" class="ml-1 h-4 w-4 text-yellow-400" />
                 </span>
               </p>
               <p class="text-sm md:text-base">
                 <span class="text-gray-400">Status: </span>
-                <span class="text-white font-medium">{{ shows[currentHero].status }}</span>
+                <span class="font-medium text-white">{{ shows[currentHero].status }}</span>
               </p>
               <p class="text-sm md:text-base">
                 <span class="text-gray-400">Premiered: </span>
-                <span class="text-white font-medium">{{ shows[currentHero].premiered }}</span>
+                <span class="font-medium text-white">{{ shows[currentHero].premiered }}</span>
               </p>
               <p class="text-sm md:text-base">
                 <span class="text-gray-400">Language: </span>
-                <span class="text-white font-medium">{{ shows[currentHero].language }}</span>
+                <span class="font-medium text-white">{{ shows[currentHero].language }}</span>
               </p>
             </div>
             
-            <p v-if="shows[currentHero].network" class="text-sm md:text-base mb-4">
+            <p v-if="shows[currentHero].network" class="mb-4 text-sm md:text-base">
               <span class="text-gray-400">Network: </span>
-              <span class="text-white font-medium">{{ shows[currentHero].network.name }} ({{ shows[currentHero].network.country.code }})</span>
+              <span class="font-medium text-white">{{ shows[currentHero].network.name }} ({{ shows[currentHero].network.country.code }})</span>
             </p>
             
-            <p class="text-sm md:text-base mt-2 text-gray-300 line-clamp-3" >
+            <p class="mt-2 line-clamp-3 text-sm text-gray-300 md:text-base" >
               {{ truncatedSummary(shows[currentHero].summary) }}
             </p>
             
             <!-- CTA Button -->
             <NuxtLink
               :to="`/shows/${shows[currentHero].id}`"
-              class="group mt-6 px-6 py-3 inline-flex items-center justify-center bg-gradient-to-r from-red-600 to-red-500 hover:from-red-500 hover:to-red-600 rounded-lg text-white font-medium text-center transform transition-all duration-300 hover:scale-[1.02] hover:shadow-lg shadow-md shadow-red-900/20">
+              class="group mt-6 inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-red-600 to-red-500 px-6 py-3 font-medium text-white shadow-md shadow-red-900/20 transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] hover:shadow-lg">
               View Details
               <Icon 
                 name="heroicons:arrow-right" 
-                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 
+                class="ml-2 h-5 w-5 transform transition-transform duration-300 group-hover:translate-x-1" 
               />
             </NuxtLink>
           </div>
@@ -83,17 +83,16 @@
     </div>
     
     <!-- Carousel Navigation -->
-    <div class="flex justify-center mt-6 space-x-3">
+    <div class="mt-6 flex justify-center space-x-3">
       <button
         v-for="(show, index) in shows" 
         :key="show.id"
         :class="[
-          'transition-all duration-300 focus:outline-none cursor-pointer',
+          'h-3 rounded-full transition-all duration-300 focus:outline-none cursor-pointer',
           currentHero === index 
             ? 'w-8 bg-red-500 shadow-md shadow-red-600/30' 
             : 'w-3 bg-gray-500/60 hover:bg-gray-400'
         ]"
-        class="h-3 rounded-full"
         @click="selectHero(index)"
       />
     </div>

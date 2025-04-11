@@ -4,19 +4,19 @@
     <div class="absolute inset-0 bg-gradient-to-tr from-black/30 via-indigo-900/20 to-black/40 animate-gradient" />
     
     <!-- Hero content with subtle animations -->
-    <div class="relative z-10 flex flex-col items-center justify-center h-full px-4 text-center">
+    <div class="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
       <h1 
-        class="text-5xl md:text-7xl font-bold mb-6 text-white tracking-tight animate-fade-in"
+        class="mb-6 text-5xl font-bold tracking-tight text-white animate-fade-in md:text-7xl"
         :style="{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }"
       >
         ABNmazing shows
       </h1>
-      <p class="text-xl md:text-2xl mb-10 text-gray-100 max-w-2xl mx-auto animate-slide-up">
+      <p class="mx-auto mb-10 max-w-2xl text-xl text-gray-100 animate-slide-up md:text-2xl">
         Immerse yourself in captivating stories with our curated collection of shows and movies
       </p>
       <NuxtLink 
         to="/shows" 
-        class="group relative overflow-hidden bg-gradient-to-r from-red-600 to-red-500 text-white font-medium py-3.5 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 animate-pulse-subtle"
+        class="group relative overflow-hidden rounded-lg bg-gradient-to-r from-red-600 to-red-500 px-8 py-3.5 font-medium text-white transition-all duration-300 transform hover:scale-105 animate-pulse-subtle"
       >
         <span class="relative z-10 flex items-center gap-2">
           Watch Now
