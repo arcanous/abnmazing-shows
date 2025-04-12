@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
-import Component from '../Component.vue'
+import Component from '../Index.vue'
 
 describe('Search Component', () => {
   it('renders without errors', () => {

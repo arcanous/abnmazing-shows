@@ -9,7 +9,7 @@
       </NuxtLink>
       
       <div class="ml-auto">
-        <SearchComponent class="relative z-10" />
+        <Search class="relative z-10" />
       </div>
     </div>
   </header>
