@@ -1,3 +1,22 @@
+<script setup lang="ts">
+defineProps<{
+  modelValue: string;
+  placeholder?: string;
+  animationStage: number;
+}>();
+
+defineEmits<{
+  (e: 'update:modelValue', value: string): void;
+  (e: 'close' | 'clear'): void;
+}>();
+
+const searchInput = ref<HTMLInputElement | null>(null);
+
+onMounted(() => {
+  searchInput.value?.focus();
+});
+</script> 
+
 <template>
   <div 
     class="fixed inset-0 bg-gray-900/98 backdrop-blur-md z-50"
@@ -35,23 +54,4 @@
     
     <slot name="close-button"/>
   </div>
-</template>
-
-<script setup lang="ts">
-defineProps<{
-  modelValue: string;
-  placeholder?: string;
-  animationStage: number;
-}>();
-
-defineEmits<{
-  (e: 'update:modelValue', value: string): void;
-  (e: 'close' | 'clear'): void;
-}>();
-
-const searchInput = ref<HTMLInputElement | null>(null);
-
-onMounted(() => {
-  searchInput.value?.focus();
-});
-</script> 
+</template> 

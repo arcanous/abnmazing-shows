@@ -1,3 +1,9 @@
+<script setup lang="ts">
+definePageMeta({
+  layout: 'landing'
+})
+</script>
+
 <template>
   <section class="relative h-screen overflow-hidden bg-gradient-to-br from-slate-600 via-purple-800 to-slate-600">
     <!-- Animated gradient overlay -->
@@ -29,12 +35,6 @@
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-definePageMeta({
-  layout: 'landing'
-})
-</script>
 
 <style scoped>
 .animate-fade-in {

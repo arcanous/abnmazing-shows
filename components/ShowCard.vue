@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineProps<{
+  show: TVShow;
+}>();
+</script> 
+
 <template>
   <NuxtLink 
     :to="`/shows/${show.id}`" 
@@ -20,10 +26,4 @@
       </div>
     </div>
   </NuxtLink>
-</template>
-
-<script setup lang="ts">
-defineProps<{
-  show: TVShow;
-}>();
-</script> 
+</template> 

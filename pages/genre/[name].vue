@@ -1,35 +1,3 @@
-<template>
-  <main class="min-h-screen bg-gray-900 text-white">
-  
-    <UiLoadingSpinner v-if="isLoading && shows.length === 0" />
-
-    <UiErrorMessage v-else-if="hasError" />
-
-    <section v-else class="container mx-auto px-4 py-8">
-      <div class="flex items-center gap-4 mb-8">
-        <UiBackButton to="/shows" text="Back to shows" />
-        <h1 class="text-4xl font-bold">{{ genreName }}</h1>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
-        <ShowCard 
-          v-for="show in shows" 
-          :key="show.id" 
-          :show="show" 
-        />
-      </div>
-
-      <!-- Pagination loader -->
-      <UiPaginationLoader v-if="isLoading && shows.length > 0" />
-
-      <!-- End of results message -->
-      <p v-if="!isLoading && reachedEnd" class="text-center text-gray-400 my-8">
-        You've reached the end of the results
-      </p>
-    </section>
-  </main>
-</template>
-
 <script setup lang="ts">
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -104,3 +72,35 @@ onUnmounted(() => {
 
 await loadShows();
 </script>
+
+<template>
+  <main class="min-h-screen bg-gray-900 text-white">
+  
+    <UiLoadingSpinner v-if="isLoading && shows.length === 0" />
+
+    <UiErrorMessage v-else-if="hasError" />
+
+    <section v-else class="container mx-auto px-4 py-8">
+      <div class="flex items-center gap-4 mb-8">
+        <UiBackButton to="/shows" text="Back to shows" />
+        <h1 class="text-4xl font-bold">{{ genreName }}</h1>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+        <ShowCard 
+          v-for="show in shows" 
+          :key="show.id" 
+          :show="show" 
+        />
+      </div>
+
+      <!-- Pagination loader -->
+      <UiPaginationLoader v-if="isLoading && shows.length > 0" />
+
+      <!-- End of results message -->
+      <p v-if="!isLoading && reachedEnd" class="text-center text-gray-400 my-8">
+        You've reached the end of the results
+      </p>
+    </section>
+  </main>
+</template>

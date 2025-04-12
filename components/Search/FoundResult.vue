@@ -1,3 +1,24 @@
+<script setup lang="ts">
+const props = defineProps<{
+  show: TVShow;
+}>();
+
+// Get the closeSearch method from the parent Search component
+const closeSearch = inject<() => void>('closeSearch');
+const router = useRouter();
+const isClicked = ref(false);
+
+const handleClick = () => {
+  isClicked.value = true;
+  router.push(`/shows/${props.show.id}`);
+  // Close search after a bit longer
+  setTimeout(() => {
+    closeSearch?.();
+  }, 200)
+
+};
+</script>
+
 <template>
   <div 
     class="group flex items-start gap-4 p-4 rounded-lg transition-all duration-300 hover:bg-gray-700/50 cursor-pointer"
@@ -46,24 +67,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const props = defineProps<{
-  show: TVShow;
-}>();
-
-// Get the closeSearch method from the parent Search component
-const closeSearch = inject<() => void>('closeSearch');
-const router = useRouter();
-const isClicked = ref(false);
-
-const handleClick = () => {
-  isClicked.value = true;
-  router.push(`/shows/${props.show.id}`);
-  // Close search after a bit longer
-  setTimeout(() => {
-    closeSearch?.();
-  }, 200)
-
-};
-</script>

@@ -1,3 +1,10 @@
+<script setup lang="ts">
+defineProps<{
+  to: string;
+  text: string;
+}>();
+</script> 
+
 <template>
   <NuxtLink 
     :to="to"
@@ -7,10 +14,3 @@
     {{ text }}
   </NuxtLink>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  to: string;
-  text: string;
-}>();
-</script> 

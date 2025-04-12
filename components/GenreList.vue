@@ -1,3 +1,46 @@
+<script setup lang="ts">
+defineProps<{
+  genre: Genre;
+}>();
+
+const scrollContainer = ref<HTMLElement | null>(null);
+const canScrollLeft = ref(false);
+const canScrollRight = ref(true);
+
+// Check scroll position to determine if arrows should be shown
+const checkScrollPosition = () => {
+  if (!scrollContainer.value) return;
+  
+  const { scrollLeft, scrollWidth, clientWidth } = scrollContainer.value;
+  
+  // Show left arrow if not at the beginning
+  canScrollLeft.value = scrollLeft > 0;
+  
+  // Show right arrow if not at the end
+  canScrollRight.value = scrollLeft < scrollWidth - clientWidth - 5;
+};
+
+const scrollSideways = (direction: number = 1) => () => {
+  if (!scrollContainer.value) return;
+  
+  scrollContainer.value.scrollBy({
+    left: direction * 300,
+    behavior: 'smooth'
+  });
+};
+
+const scrollLeft = scrollSideways(-1);
+const scrollRight = scrollSideways(1);;
+
+onMounted(() => {
+  checkScrollPosition();
+  // Check if we can scroll right initially
+  if (scrollContainer.value) {
+    canScrollRight.value = scrollContainer.value.scrollWidth > scrollContainer.value.clientWidth;
+  }
+});
+</script>
+
 <template>
   <article class="relative mb-12 group">
     <!-- Header with improved styling -->
@@ -52,46 +95,3 @@
     </div>
   </article>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  genre: Genre;
-}>();
-
-const scrollContainer = ref<HTMLElement | null>(null);
-const canScrollLeft = ref(false);
-const canScrollRight = ref(true);
-
-// Check scroll position to determine if arrows should be shown
-const checkScrollPosition = () => {
-  if (!scrollContainer.value) return;
-  
-  const { scrollLeft, scrollWidth, clientWidth } = scrollContainer.value;
-  
-  // Show left arrow if not at the beginning
-  canScrollLeft.value = scrollLeft > 0;
-  
-  // Show right arrow if not at the end
-  canScrollRight.value = scrollLeft < scrollWidth - clientWidth - 5;
-};
-
-const scrollSideways = (direction: number = 1) => () => {
-  if (!scrollContainer.value) return;
-  
-  scrollContainer.value.scrollBy({
-    left: direction * 300,
-    behavior: 'smooth'
-  });
-};
-
-const scrollLeft = scrollSideways(-1);
-const scrollRight = scrollSideways(1);;
-
-onMounted(() => {
-  checkScrollPosition();
-  // Check if we can scroll right initially
-  if (scrollContainer.value) {
-    canScrollRight.value = scrollContainer.value.scrollWidth > scrollContainer.value.clientWidth;
-  }
-});
-</script>

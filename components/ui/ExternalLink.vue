@@ -1,3 +1,11 @@
+<script setup lang="ts">
+defineProps<{
+  href: string;
+  text: string;
+  color: 'yellow' | 'blue' | 'red' | 'green' | 'gray';
+}>();
+</script> 
+
 <template>
   <a 
     :href="href" 
@@ -10,11 +18,3 @@
     <Icon name="heroicons:arrow-top-right-on-square" class="h-3.5 w-3.5 ml-1.5" />
   </a>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  href: string;
-  text: string;
-  color: 'yellow' | 'blue' | 'red' | 'green' | 'gray';
-}>();
-</script> 

@@ -1,55 +1,3 @@
-<template>
-  <div class="h-10 flex items-center">
-    <!-- Search button (collapsed state) -->
-    <SearchButton  v-if="!isActive || (isActive && isMobile)" @click="activateSearch" />
-    
-    <!-- Search input (expanded but not full-screen) -->
-    <div v-else-if="!isExpanded && !isMobile" class="relative h-10">
-      <SearchInput
-        v-model="searchQuery"
-        placeholder="Search shows..."
-        :is-visible="isActive"
-        @submit="expandSearch"
-        @cancel="deactivateSearch"
-        @clear="clearSearch"
-      />
-    </div>
-    
-    <!-- Teleport the expanded search UI into body -->
-    <Teleport to="body">
-      <Transition
-        enter-active-class="transition-all duration-500 ease-out"
-        leave-active-class="transition-all duration-300 ease-in"
-        enter-from-class="opacity-0"
-        leave-to-class="opacity-0"
-      >
-        <SearchOverlay
-          v-if="isExpanded"
-          v-model="searchQuery"
-          placeholder="Search shows..."
-          :animation-stage="animationStage"
-          @close="closeSearch"
-          @clear="clearExpandedSearch"
-        >
-          <template #results>
-            <SearchResults
-              :query="searchQuery"
-              :animation-stage="animationStage"
-            />
-          </template>
-          
-          <template #close-button>
-            <SearchCloseButton
-              :animation-stage="animationStage"
-              @click="closeSearch"
-            />
-          </template>
-        </SearchOverlay>
-      </Transition>
-    </Teleport>
-  </div>
-</template>
-
 <script setup lang="ts">
 const isActive = ref(false);
 const isExpanded = ref(false);
@@ -130,3 +78,54 @@ onUnmounted(() => {
 });
 </script>
 
+<template>
+  <div class="h-10 flex items-center">
+    <!-- Search button (collapsed state) -->
+    <SearchButton  v-if="!isActive || (isActive && isMobile)" @click="activateSearch" />
+    
+    <!-- Search input (expanded but not full-screen) -->
+    <div v-else-if="!isExpanded && !isMobile" class="relative h-10">
+      <SearchInput
+        v-model="searchQuery"
+        placeholder="Search shows..."
+        :is-visible="isActive"
+        @submit="expandSearch"
+        @cancel="deactivateSearch"
+        @clear="clearSearch"
+      />
+    </div>
+    
+    <!-- Teleport the expanded search UI into body -->
+    <Teleport to="body">
+      <Transition
+        enter-active-class="transition-all duration-500 ease-out"
+        leave-active-class="transition-all duration-300 ease-in"
+        enter-from-class="opacity-0"
+        leave-to-class="opacity-0"
+      >
+        <SearchOverlay
+          v-if="isExpanded"
+          v-model="searchQuery"
+          placeholder="Search shows..."
+          :animation-stage="animationStage"
+          @close="closeSearch"
+          @clear="clearExpandedSearch"
+        >
+          <template #results>
+            <SearchResults
+              :query="searchQuery"
+              :animation-stage="animationStage"
+            />
+          </template>
+          
+          <template #close-button>
+            <SearchCloseButton
+              :animation-stage="animationStage"
+              @click="closeSearch"
+            />
+          </template>
+        </SearchOverlay>
+      </Transition>
+    </Teleport>
+  </div>
+</template>

@@ -1,17 +1,3 @@
-<template>
-  <main class="min-h-screen bg-gray-900 text-white">
-    
-    <UiLoadingSpinner v-if="isLoading" />
-    
-    <UiErrorMessage v-else-if="hasError" />
-    
-    <section v-else class="container mx-auto px-4 py-8">
-      <HeroCarousel v-if="top10Shows.length" :shows="top10Shows" />
-      <GenreList v-for="genre in showListByGenre" :key="genre.name" :genre="genre" />
-    </section>
-  </main>
-</template>
-
 <script setup lang="ts">
 const config = useRuntimeConfig();
 const showsApiUrl = `${config.public.apiBase}/shows`;
@@ -75,6 +61,20 @@ const loadShows = async (): Promise<void> => {
 
 await loadShows();
 </script>
+
+<template>
+  <main class="min-h-screen bg-gray-900 text-white">
+    
+    <UiLoadingSpinner v-if="isLoading" />
+    
+    <UiErrorMessage v-else-if="hasError" />
+    
+    <section v-else class="container mx-auto px-4 py-8">
+      <HeroCarousel v-if="top10Shows.length" :shows="top10Shows" />
+      <GenreList v-for="genre in showListByGenre" :key="genre.name" :genre="genre" />
+    </section>
+  </main>
+</template>
 
 <style scoped>
 .flex::-webkit-scrollbar {

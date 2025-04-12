@@ -1,3 +1,50 @@
+<script setup lang="ts">
+const props = defineProps<{
+  shows: TVShow[];
+}>();
+
+const currentHero = ref(0);
+let heroInterval: number | undefined;
+
+/**
+ * Returns a truncated version of the summary (up to 200 characters)
+ * and appends ellipsis if the text is longer.
+ */
+const truncatedSummary = (text: string, maxLength = 200): string => {
+  if (!text) return '';
+  // Remove HTML tags (if summary is in HTML) for safe truncation.
+  const plainText = text.replace(/<\/?[^>]+(>|$)/g, '');
+  return plainText.length > maxLength ? plainText.slice(0, maxLength).trim() + '...' : plainText;
+};
+
+const startCarouselTimer = (): void => {
+  if (heroInterval) {
+    clearInterval(heroInterval);
+  }
+  
+  if (props.shows.length > 1) {
+    heroInterval = window.setInterval(() => {
+      currentHero.value = (currentHero.value + 1) % props.shows.length;
+    }, 10000);
+  }
+};
+
+const selectHero = (index: number): void => {
+  currentHero.value = index;
+  startCarouselTimer(); // Reset the timer when user selects
+};
+
+onMounted(() => {
+  startCarouselTimer();
+});
+
+onUnmounted(() => {
+  if (heroInterval) {
+    clearInterval(heroInterval);
+  }
+});
+</script>
+
 <template>
   <div class="mb-12">
     <div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 shadow-2xl md:flex md:h-[500px]">
@@ -98,53 +145,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const props = defineProps<{
-  shows: TVShow[];
-}>();
-
-const currentHero = ref(0);
-let heroInterval: number | undefined;
-
-/**
- * Returns a truncated version of the summary (up to 200 characters)
- * and appends ellipsis if the text is longer.
- */
-const truncatedSummary = (text: string, maxLength = 200): string => {
-  if (!text) return '';
-  // Remove HTML tags (if summary is in HTML) for safe truncation.
-  const plainText = text.replace(/<\/?[^>]+(>|$)/g, '');
-  return plainText.length > maxLength ? plainText.slice(0, maxLength).trim() + '...' : plainText;
-};
-
-const startCarouselTimer = (): void => {
-  if (heroInterval) {
-    clearInterval(heroInterval);
-  }
-  
-  if (props.shows.length > 1) {
-    heroInterval = window.setInterval(() => {
-      currentHero.value = (currentHero.value + 1) % props.shows.length;
-    }, 10000);
-  }
-};
-
-const selectHero = (index: number): void => {
-  currentHero.value = index;
-  startCarouselTimer(); // Reset the timer when user selects
-};
-
-onMounted(() => {
-  startCarouselTimer();
-});
-
-onUnmounted(() => {
-  if (heroInterval) {
-    clearInterval(heroInterval);
-  }
-});
-</script>
 
 <style scoped>
 .fade-enter-active,

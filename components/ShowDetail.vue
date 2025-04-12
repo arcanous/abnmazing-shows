@@ -1,3 +1,9 @@
+<script setup lang="ts">
+defineProps<{
+  show: TVShow;
+}>();
+</script> 
+
 <template>
   <!-- Show content -->
   <section class="pb-16">
@@ -195,10 +201,4 @@
       </div>
     </div>
   </section>
-</template>
-
-<script setup lang="ts">
-defineProps<{
-  show: TVShow;
-}>();
-</script> 
+</template> 

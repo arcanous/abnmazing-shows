@@ -1,3 +1,13 @@
+<script setup lang="ts">
+defineProps<{
+  animationStage: number;
+}>();
+
+const emit = defineEmits<{
+  (e: 'click'): void;
+}>();
+</script> 
+
 <template>
   <div 
     class="fixed bottom-8 left-0 right-0 flex justify-center transition-all duration-700"
@@ -12,13 +22,3 @@
     </button>
   </div>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  animationStage: number;
-}>();
-
-const emit = defineEmits<{
-  (e: 'click'): void;
-}>();
-</script> 

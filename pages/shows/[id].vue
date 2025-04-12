@@ -1,14 +1,3 @@
-<template>
-  <main class="min-h-screen bg-gray-900 text-white">
-    
-    <UiLoadingSpinner v-if="isLoading" />
-
-    <UiErrorMessage v-else-if="hasError" />
-
-    <ShowDetail v-else-if="show" :show="show" />
-  </main>
-</template>
-
 <script setup lang="ts">
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -38,3 +27,14 @@ const fetchShow = async (): Promise<void> => {
 
 await fetchShow();
 </script>
+
+<template>
+  <main class="min-h-screen bg-gray-900 text-white">
+    
+    <UiLoadingSpinner v-if="isLoading" />
+
+    <UiErrorMessage v-else-if="hasError" />
+
+    <ShowDetail v-else-if="show" :show="show" />
+  </main>
+</template>

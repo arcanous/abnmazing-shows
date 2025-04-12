@@ -1,3 +1,22 @@
+<script setup lang="ts">
+defineProps<{
+  modelValue: string;
+  placeholder?: string;
+  isVisible: boolean;
+}>();
+
+defineEmits<{
+  (e: 'update:modelValue', value: string): void;
+  (e: 'submit' | 'cancel' | 'clear'): void;
+}>();
+
+const inputElement = ref<HTMLInputElement | null>(null);
+
+onMounted(() => {
+  inputElement.value?.focus();
+});
+</script> 
+
 <template>
   <div 
     class="flex h-10 items-center overflow-hidden rounded-full border border-gray-700/50 bg-gray-800/80 shadow-md transition-all duration-500"
@@ -25,22 +44,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-defineProps<{
-  modelValue: string;
-  placeholder?: string;
-  isVisible: boolean;
-}>();
-
-defineEmits<{
-  (e: 'update:modelValue', value: string): void;
-  (e: 'submit' | 'cancel' | 'clear'): void;
-}>();
-
-const inputElement = ref<HTMLInputElement | null>(null);
-
-onMounted(() => {
-  inputElement.value?.focus();
-});
-</script> 
