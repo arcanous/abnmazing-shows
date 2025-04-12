@@ -61,7 +61,7 @@ defineProps<{
             
             <div class="mb-4 flex flex-wrap gap-2">
               <UiPill 
-                v-for="genre in show.genres" 
+                v-for="genre in show.genres || []" 
                 :key="genre" 
                 :text="genre" 
               />
@@ -70,7 +70,7 @@ defineProps<{
             <div class="mb-3 flex items-center gap-4 text-sm md:text-base">
               <div v-if="show.rating?.average" class="flex items-center">
                 <Icon name="heroicons:star-solid" class="mr-1 h-5 w-5 text-yellow-400" />
-                <span class="font-medium">{{ show.rating.average }}/10</span>
+                <span class="font-medium">{{ show.rating?.average }}/10</span>
               </div>
               
               <div v-if="show.runtime" class="flex items-center">
@@ -96,7 +96,7 @@ defineProps<{
           <!-- Summary -->
           <div class="rounded-xl bg-gray-800/50 p-6">
             <UiSectionHeader title="Synopsis" icon="heroicons:information-circle" />
-            <div class="leading-relaxed text-gray-300" v-html="show.summary"/>
+            <div class="leading-relaxed text-gray-300" v-html="show.summary || ''"/>
           </div>
           
           <!-- Schedule -->
@@ -104,12 +104,12 @@ defineProps<{
             <UiSectionHeader title="Schedule" icon="heroicons:calendar-days" />
             <div class="flex flex-wrap gap-2">
               <UiPill 
-                v-for="day in show.schedule.days" 
+                v-for="day in show.schedule?.days || []" 
                 :key="day" 
                 :text="day"
               />
             </div>
-            <p v-if="show.schedule.time" class="mt-3 text-gray-300">
+            <p v-if="show.schedule?.time" class="mt-3 text-gray-300">
               Airs at <span class="font-medium text-white">{{ show.schedule.time }}</span>
             </p>
           </div>
@@ -125,7 +125,7 @@ defineProps<{
                 <span>Name:</span>
                 <span class="text-white">{{ show.network.name }}</span>
               </li>
-              <li v-if="show.network.country" class="flex justify-between">
+              <li v-if="show.network?.country" class="flex justify-between">
                 <span>Country:</span>
                 <span class="text-white">{{ show.network.country.name }} ({{ show.network.country.code }})</span>
               </li>
@@ -176,7 +176,7 @@ defineProps<{
               <h3 class="mb-3 text-sm font-medium text-gray-400">External Links</h3>
               <div class="flex flex-wrap gap-3">
                 <UiExternalLink
-                  v-if="show.externals.imdb" 
+                  v-if="show.externals?.imdb" 
                   :href="`https://www.imdb.com/title/${show.externals.imdb}`"
                   text="IMDb"
                   color="yellow"

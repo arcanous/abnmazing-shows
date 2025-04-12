@@ -10,7 +10,7 @@ defineProps<{
     class="group relative flex-none w-40 transform transition duration-200 hover:scale-105"
   >
     <NuxtImg 
-      :src="show.image.medium" 
+      :src="show.image?.medium || '/placeholder-image.webp'" 
       :alt="show.name" 
       width="160" 
       height="225" 

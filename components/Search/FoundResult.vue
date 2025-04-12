@@ -48,7 +48,7 @@ const handleClick = () => {
       <div class="flex items-center mt-1">
         <div v-if="show.rating?.average" class="flex items-center text-yellow-400 mr-3">
           <Icon name="heroicons:star-solid" class="h-4 w-4 mr-1" />
-          <span class="text-sm">{{ show.rating.average }}</span>
+          <span class="text-sm">{{ show.rating?.average }}</span>
         </div>
         
         <div class="flex items-center text-gray-400 text-sm">
@@ -59,7 +59,7 @@ const handleClick = () => {
       
       <div class="mt-2 flex flex-wrap gap-1">
         <span
-          v-for="genre in show.genres.slice(0, 2)" :key="genre" 
+          v-for="genre in show.genres?.slice(0, 2) || []" :key="genre" 
           class="px-2 py-0.5 bg-gray-700/70 text-xs rounded-full text-gray-300">
           {{ genre }}
         </span>

@@ -53,7 +53,7 @@ onUnmounted(() => {
         <Transition name="fade" mode="out-in">
           <NuxtImg
             :key="currentHero"
-            :src="shows[currentHero].image.original || shows[currentHero].image.medium"
+            :src="shows[currentHero].image?.original || shows[currentHero].image?.medium || '/placeholder-image.png'"
             :alt="shows[currentHero].name" 
             class="h-72 w-full object-cover transition-all duration-700 hover:scale-105 md:h-full"
             loading="eager"
@@ -77,7 +77,7 @@ onUnmounted(() => {
             
             <div class="mb-4 flex flex-wrap gap-2">
               <UiPill 
-                v-for="genre in shows[currentHero].genres" 
+                v-for="genre in shows[currentHero].genres || []" 
                 :key="genre"
                 :text="genre"
               />
@@ -87,8 +87,8 @@ onUnmounted(() => {
               <p class="flex items-center gap-1 text-sm md:text-base">
                 <span class="text-gray-400">Rating: </span>
                 <span class="flex items-center font-medium text-white">
-                  {{ shows[currentHero].rating.average ? shows[currentHero].rating.average : 'N/A' }}
-                  <Icon v-if="shows[currentHero].rating.average" name="heroicons:star-solid" class="ml-1 h-4 w-4 text-yellow-400" />
+                  {{ shows[currentHero].rating?.average ? shows[currentHero].rating.average : 'N/A' }}
+                  <Icon v-if="shows[currentHero].rating?.average" name="heroicons:star-solid" class="ml-1 h-4 w-4 text-yellow-400" />
                 </span>
               </p>
               <p class="text-sm md:text-base">
@@ -107,11 +107,14 @@ onUnmounted(() => {
             
             <p v-if="shows[currentHero].network" class="mb-4 text-sm md:text-base">
               <span class="text-gray-400">Network: </span>
-              <span class="font-medium text-white">{{ shows[currentHero].network.name }} ({{ shows[currentHero].network.country.code }})</span>
+              <span class="font-medium text-white">
+                {{ shows[currentHero].network.name }} 
+                {{ shows[currentHero].network.country ? `(${shows[currentHero].network.country.code})` : '' }}
+              </span>
             </p>
             
             <p class="mt-2 line-clamp-3 text-sm text-gray-300 md:text-base" >
-              {{ truncatedSummary(shows[currentHero].summary) }}
+              {{ truncatedSummary(shows[currentHero].summary || '') }}
             </p>
             
             <!-- CTA Button -->
