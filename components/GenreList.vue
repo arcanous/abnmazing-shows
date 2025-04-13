@@ -95,3 +95,16 @@ onMounted(() => {
     </div>
   </article>
 </template>
+
+<style scoped>
+.flex::-webkit-scrollbar {
+  height: 8px;
+}
+.flex::-webkit-scrollbar-track {
+  background: transparent;
+}
+.flex::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+</style>
