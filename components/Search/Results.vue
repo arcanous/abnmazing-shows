@@ -24,15 +24,15 @@ const performSearch = async (query: string) => {
   isSearching.value = true;
   hasError.value = false;
   
-  const { data, error } = await useFetch<SearchResult[]>(`${searchApiUrl}?q=${encodeURIComponent(query)}`);
-  
-  if (error.value) {
+  try {
+    const data = await $fetch<SearchResult[]>(`${searchApiUrl}?q=${encodeURIComponent(query)}`);
+    searchResults.value = data;
+  } catch (error) {
     hasError.value = true;
-    console.error('Search error:', error.value);
-  } else if (data.value) {
-    searchResults.value = data.value;
+    console.error('Search error:', error);
+  } finally {
+    isSearching.value = false;
   }
-  isSearching.value = false;
 };
 
 // Simple basic debounce with watch
