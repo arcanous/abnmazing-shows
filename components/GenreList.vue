@@ -63,7 +63,7 @@ onMounted(() => {
       <button 
         v-show="canScrollLeft" 
         aria-label="Scroll left"
-        class="absolute top-1/2 left-0 z-50 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 shadow-lg transition-all duration-300 hover:bg-black/70 focus:outline-none cursor-pointer"
+        class="absolute top-1/2 left-0 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 shadow-lg transition-all duration-300 hover:bg-black/70 focus:outline-none cursor-pointer"
         @click="scrollLeft"
       >
         <Icon name="heroicons:chevron-left" class="h-5 w-5 text-white" />
@@ -73,7 +73,7 @@ onMounted(() => {
       <button 
         v-show="canScrollRight" 
         aria-label="Scroll right"
-        class="absolute top-1/2 right-0 z-50 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 shadow-lg transition-all duration-300 hover:bg-black/70 focus:outline-none cursor-pointer"
+        class="absolute top-1/2 right-0 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-black/50 shadow-lg transition-all duration-300 hover:bg-black/70 focus:outline-none cursor-pointer"
         @click="scrollRight"
       >
         <Icon name="heroicons:chevron-right" class="h-5 w-5 text-white" />

@@ -12,8 +12,7 @@ definePageMeta({
     <!-- Hero content with subtle animations -->
     <div class="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
       <h1 
-        class="mb-6 text-5xl font-bold tracking-tight text-white animate-fade-in md:text-7xl"
-        :style="{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }"
+        class="main-title mb-6 text-5xl font-bold tracking-tight text-white animate-fade-in md:text-7xl"
       >
         ABNmazing shows
       </h1>
@@ -22,7 +21,7 @@ definePageMeta({
       </p>
       <NuxtLink 
         to="/shows" 
-        class="group relative overflow-hidden rounded-lg bg-gradient-to-r from-red-600 to-red-500 px-8 py-3.5 font-medium text-white transition-all duration-300 transform hover:scale-105 animate-pulse-subtle"
+        class="group relative overflow-hidden rounded-lg bg-red-600 px-8 py-3.5 font-medium text-white transition-all duration-300 transform hover:scale-105 animate-pulse-subtle"
       >
         <span class="relative z-10 flex items-center gap-2">
           Watch Now
@@ -37,6 +36,10 @@ definePageMeta({
 </template>
 
 <style scoped>
+.main-title {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+
 .animate-fade-in {
   animation: fadeIn 1.2s ease-out;
 }

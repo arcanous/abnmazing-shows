@@ -120,7 +120,7 @@ onUnmounted(() => {
             <!-- CTA Button -->
             <NuxtLink
               :to="`/shows/${shows[currentHero].id}`"
-              class="group mt-6 inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-red-600 to-red-500 px-6 py-3 font-medium text-white shadow-md shadow-red-900/20 transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] hover:shadow-lg">
+              class="group mt-6 inline-flex items-center justify-center rounded-lg bg-red-600 px-6 py-3 font-medium text-white shadow-md shadow-red-900/20 transition-all duration-300 hover:from-red-500 hover:to-red-600 hover:scale-[1.02] hover:shadow-lg">
               View Details
               <Icon 
                 name="heroicons:arrow-right" 
