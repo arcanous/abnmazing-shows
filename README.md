@@ -24,11 +24,16 @@ Check out the live version here:
 - Application is mobile-friendly and adapts seamlessly to various screen sizes.
 - As a small extra: A minimalist infinite scroll for browsing shows within a genre.
 
-## 💩 Known flaws and issues that would need to be fixed for real production application
-- Swipe gestures for mobile on the hero carousel component
-- Smarter infinite scroll that continues pagination if the initial page doesn't return enough shows
-- More robust API response validation, probably using something like [Zod](https://zod.dev/)
-- More gracious error handling and recovery
+
+## 🛠️ Production-Readiness Considerations
+
+While this project meets the core assignment requirements, a production-ready application would require additional features and refinements, including:
+- Mobile swipe support for the hero carousel to enhance touch interaction.
+- Improved infinite scroll logic that continues pagination if the initial page dataset is insufficient to fill the page.
+- Robust API response validation, potentially using a schema validation library like [Zod](https://zod.dev/).
+- Enhanced a11y features (ARIA roles, sr-only text for non-visual cues, better kyboard navigation support and visible focus indicators etc.)
+- Internationalization (i18n) support for broader audience reach.
+- etc.
 
 ## 📦 Getting Started
 
