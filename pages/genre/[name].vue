@@ -22,7 +22,7 @@ const loadShows = async (): Promise<void> => {
   isLoading.value = true;
   
   try {
-    const { data, error } = await useFetch<TVShow[]>(`${showsApiUrl}?page=${currentPage.value}`);
+    const { data, error } = await useFetch<TVShow[]>(`${showsApiUrl}?page=${currentPage.value}`, { key: `page_${currentPage.value}` });
     
     if (error.value) {
       hasError.value = true;

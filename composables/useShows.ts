@@ -5,7 +5,7 @@ export async function useShows () {
   const showListByGenre = ref<Genre[]>([]);
   const top10Shows = ref<TVShow[]>([]);
 
-  const { data, status } = await useFetch<TVShow[]>(showsApiUrl);
+  const { data, status } = await useFetch<TVShow[]>(showsApiUrl, { key: 'shows' });
 
   if (data.value && Array.isArray(data.value)) {
     // All TV shows returned from the API

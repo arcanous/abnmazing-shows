@@ -4,7 +4,7 @@ const config = useRuntimeConfig();
 const showId = route.params.id;
 const showApiUrl = `${config.public.apiBase}/shows/${showId}`;
 
-const { data: show, status } = useFetch<TVShow>(showApiUrl);
+const { data: show, status } = useFetch<TVShow>(showApiUrl, { key: `show_${showId}` });
 </script>
 
 <template>
